@@ -1,4 +1,4 @@
-mkdir src/application/views/customer
+mkdir application/views/customer
 cp src/application/controllers/Customer.php ../../../application/controllers/Customer.php
 cp src/application/models/Customer_model.php ../../../application/models/Customer_model.php
 cp src/application/views/customer/index.html ../../../application/views/customer/index.html
