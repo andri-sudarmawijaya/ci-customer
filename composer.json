@@ -15,10 +15,6 @@
         }
     ],
     "minimum-stability": "dev",
-
-    "require": {
-        "andri-sudarmawijaya/ci-customer": "~1.0"
-    },
     "extra": {
         "paths": {
             "andri-sudarmawijaya/ci-customer": "application/"
