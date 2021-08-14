@@ -1,11 +1,13 @@
 {
     "name": "andri-sudarmawijaya/ci-customer",
-    "description": "CI Customer Module",
+    "description": "CI Customer Package",
     "type": "codeigniter-package",
-	"require": {
-		"composer/installers": "~1.0"
-	},
     "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AndriSudarmawijaya\\CiCustomer\\": "src/"
+        }
+    },
     "authors": [
         {
             "name": "Andri Sudarmawijaya",
@@ -13,8 +15,8 @@
         }
     ],
     "minimum-stability": "dev",
-    "extra": {
-        "paths": {
-            "./application":"andri-sudarmawijaya/ci-customer"        }
+    "scripts": {
+      "post-install-cmd": "chmod 700 src/scripts/install.sh & sh ./src/scripts/install.sh",
+      "post-update-cmd": "chmod 700 src/scripts/update.sh & sh ./src/scripts/update.sh"
     }
 }
