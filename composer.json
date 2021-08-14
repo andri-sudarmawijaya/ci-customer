@@ -14,10 +14,5 @@
             "email": "andri.sudarmawijaya@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "extra": {
-        "paths": {
-            "andri-sudarmawijaya/ci-customer": "application/"
-        }
-    }
+    "minimum-stability": "dev"
 }
