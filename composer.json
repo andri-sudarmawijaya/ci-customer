@@ -1,7 +1,10 @@
 {
     "name": "andri-sudarmawijaya/ci-customer",
     "description": "CI Customer Module",
-    "type": "codeigniter-module",
+    "type": "codeigniter-package",
+	"require": {
+		"composer/installers": "~1.0"
+	},
     "license": "MIT",
     "authors": [
         {
