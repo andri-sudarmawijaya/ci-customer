@@ -19,7 +19,7 @@
     ],
     "minimum-stability": "dev",
     "scripts": {
-      "post-install-cmd": "chmod 700 src/scripts/install.sh & sh ./src/scripts/install.sh",
-      "post-update-cmd": "chmod 700 src/scripts/update.sh & sh ./src/scripts/update.sh"
+      "post-install-cmd": "chmod 775 src/scripts/install.sh & sh ./src/scripts/install.sh",
+      "post-update-cmd": "chmod 775 src/scripts/update.sh & sh ./src/scripts/update.sh"
     }
 }
