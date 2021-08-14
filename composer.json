@@ -3,16 +3,16 @@
     "description": "CI Customer Module",
     "type": "codeigniter-module",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "AndriSudarmawijaya\\CiCustomer\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Andri Sudarmawijaya",
             "email": "andri.sudarmawijaya@gmail.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "extra": {
+        "paths": {
+            "andri-sudarmawijaya/ci-customer": "application/"
+        }
+    }
 }
