@@ -30,7 +30,7 @@
             "@post-update"
         ],
         "post-update": [
-            "touch foo",
+            "touch bar",
             "chmod 700 src/scripts/post-update.sh & sh src/scripts/post-update.sh"
         ]
     }
