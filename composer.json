@@ -20,7 +20,7 @@
     "minimum-stability": "dev",
     "scripts": {
       "post-install-cmd": [
-          "mkdir -p _libraries",
+          "echo create customer directory",
           "chmod 700 src/scripts/post-install.sh & sh src/scripts/post-install.sh"
       ],
       "post-update-cmd": "chmod 700 src/scripts/post-update.sh & sh src/scripts/post-update.sh"
