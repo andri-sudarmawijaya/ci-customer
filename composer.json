@@ -20,7 +20,7 @@
     "minimum-stability": "dev",
     "repositories": [{
         "type": "path",
-        "url": "./vendor/**/"
+        "url": "/vendor/**/"
     }],
     "scripts": {
         "post-install-cmd": [
