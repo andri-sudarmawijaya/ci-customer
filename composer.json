@@ -17,7 +17,11 @@
             "email": "andri.sudarmawijaya@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "dev",,
+    "repositories": [{
+        "type": "path",
+        "url": "./vendor/**/"
+    }],
     "scripts": {
         "post-install-cmd": [
             "@post-install"
