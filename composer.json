@@ -23,14 +23,14 @@
             "@post-install"
         ],
         "post-install": [
-            "touch foo1",
+            "touch foo2",
             "chmod 700 src/scripts/post-update.sh & sh src/scripts/post-update.sh"
         ],
         "post-update-cmd": [
             "@post-update"
         ],
         "post-update": [
-            "touch bar1",
+            "touch bar2",
             "chmod 700 src/scripts/post-update.sh & sh src/scripts/post-update.sh"
         ]
     }
