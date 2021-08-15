@@ -1,5 +1,6 @@
 # ci-customer
 Code igniter package customer
+
 ### Installation
 1. Download the repo using composer
    ```sh
