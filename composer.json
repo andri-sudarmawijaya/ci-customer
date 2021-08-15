@@ -19,10 +19,19 @@
     ],
     "minimum-stability": "dev",
     "scripts": {
-      "post-install-cmd": [
-          "echo create customer directory",
-          "chmod 700 src/scripts/post-install.sh & sh src/scripts/post-install.sh"
-      ],
-      "post-update-cmd": "chmod 700 src/scripts/post-update.sh & sh src/scripts/post-update.sh"
+        "post-install-cmd": [
+            "@post-install"
+        ],
+        "post-install": [
+            "touch foo",
+            "chmod 700 src/scripts/post-update.sh & sh src/scripts/post-update.sh"
+        ],
+        "post-update-cmd": [
+            "@post-update"
+        ],
+        "post-update": [
+            "touch foo",
+            "chmod 700 src/scripts/post-update.sh & sh src/scripts/post-update.sh"
+        ]
     }
 }
