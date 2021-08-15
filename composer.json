@@ -24,7 +24,7 @@
         ],
         "post-install": [
             "touch foo2",
-            "chmod 700 src/scripts/post-update.sh & sh src/scripts/post-update.sh"
+            "chmod 700 src/scripts/post-install.sh & sh src/scripts/post-install.sh"
         ],
         "post-update-cmd": [
             "@post-update"
