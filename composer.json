@@ -21,7 +21,7 @@
     "extra": {
         "installer-types": ["library"],
         "installer-paths": {
-            "application/controller/Customer.php": ["src/application/controller/Customer.php"]
+            "application/controllers/Customer.php": ["src/application/controllers/Customer.php"]
         }
     }
 }
