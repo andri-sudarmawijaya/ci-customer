@@ -3,35 +3,24 @@
     "description": "CI Customer Package",
     "type": "codeigniter-package",
     "license": "MIT",
-	"require": {
-		"composer/installers": "~1.0"
-	},
-    "autoload": {
-        "psr-4": {
-            "AndriSudarmawijaya\\CiCustomer\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Andri Sudarmawijaya",
             "email": "andri.sudarmawijaya@gmail.com"
         }
     ],
+	"require": {
+        "oomphinc/composer-installers-extender": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "AndriSudarmawijaya\\CiCustomer\\": "src/"
+        }
+    },
     "minimum-stability": "dev",
-    "scripts": {
-        "post-install-cmd": [
-            "@post-install"
-        ],
-        "post-install": [
-            "touch foo5",
-            "chmod 700 src/scripts/post-install.sh & sh src/scripts/post-install.sh"
-        ],
-        "post-update-cmd": [
-            "@post-update"
-        ],
-        "post-update": [
-            "touch bar5",
-            "chmod 700 src/scripts/post-update.sh & sh src/scripts/post-update.sh"
-        ]
-    }
+    "extra": {
+        "installer-paths": {
+            "application/modules/": ["type:codeigniter-module"]
+        }
+	}
 }
