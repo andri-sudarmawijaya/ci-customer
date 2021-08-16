@@ -1,7 +1,7 @@
 {
     "name": "andri-sudarmawijaya/ci-customer",
     "description": "CI Customer Package",
-    "type": "codeigniter-module",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
@@ -9,18 +9,16 @@
             "email": "andri.sudarmawijaya@gmail.com"
         }
     ],
-	"require": {
-        "oomphinc/composer-installers-extender": "^2.0"
-    },
+	"require": { },
     "autoload": {
         "psr-4": {
             "AndriSudarmawijaya\\CiCustomer\\": "src/"
         }
     },
     "minimum-stability": "dev",
-    "extra": {
-        "installer-paths": {
-            "application/modules/": ["type:codeigniter-module"]
-        }
-	}
+    "scripts" : {
+        "post-create-project-cmd": [
+            "AndriSudarmawijaya\\CiCustomer\\Installer::postInstall"
+        ]
+    }
 }
