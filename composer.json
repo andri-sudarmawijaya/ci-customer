@@ -9,16 +9,19 @@
             "email": "andri.sudarmawijaya@gmail.com"
         }
     ],
-	"require": { },
+	"require": {
+        "oomphinc/composer-installers-extender": "^2.0"
+    },
     "autoload": {
         "psr-4": {
             "AndriSudarmawijaya\\CiCustomer\\": "src/"
         }
     },
     "minimum-stability": "dev",
-    "scripts" : {
-        "post-create-project-cmd": [
-            "AndriSudarmawijaya\\CiCustomer\\Installer::postInstall"
-        ]
+    "extra": {
+        "installer-types": ["library"],
+        "installer-paths": {
+            "application/": ["src/application"]
+        }
     }
 }
