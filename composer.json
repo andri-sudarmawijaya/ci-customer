@@ -1,7 +1,7 @@
 {
     "name": "andri-sudarmawijaya/ci-customer",
     "description": "CI Customer Package",
-    "type": "codeigniter-package",
+    "type": "codeigniter-module",
     "license": "MIT",
     "authors": [
         {
