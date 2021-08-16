@@ -9,9 +9,7 @@
             "email": "andri.sudarmawijaya@gmail.com"
         }
     ],
-	"require": {
-        "oomphinc/composer-installers-extender": "^2.0"
-    },
+	"require": { },
     "autoload": {
         "psr-4": {
             "AndriSudarmawijaya\\CiCustomer\\": "src/"
@@ -19,9 +17,8 @@
     },
     "minimum-stability": "dev",
     "extra": {
-        "installer-types": ["library"],
-        "installer-paths": {
-            "application/controllers/Customer.php": ["src/application/controllers/Customer.php"]
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
         }
     }
 }
