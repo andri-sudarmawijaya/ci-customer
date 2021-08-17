@@ -12,11 +12,6 @@
 	"require": {
         "slowprog/composer-copy-file": "~0.3"
     },
-    "autoload": {
-        "psr-4": {
-            "AndriSudarmawijaya\\CiCustomer\\": "src/"
-        }
-    },
     "minimum-stability": "dev",
     "scripts": {
         "post-install-cmd": [
