@@ -9,9 +9,6 @@
             "email": "andri.sudarmawijaya@gmail.com"
         }
     ],
-	"require": {
-        "slowprog/composer-copy-file": "~0.3"
-    },
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
@@ -20,14 +17,10 @@
     },
     "scripts" : {
         "post-install-cmd": [
-            "AndriSudarmawijaya\\Copyfile10\\Installer::postInstall"
+            "AndriSudarmawijaya\\CiCustomer\\Installer::postInstall"
         ],
         "post-update-cmd": [
-            "php -r \"copy('config/local-example.php', './application/config/local.php');\"",
-            "AndriSudarmawijaya\\Copyfile10\\Installer::postUpdate"
-        ],
-        "post-autoload-dump": [
-            "AndriSudarmawijaya\\Copyfile10\\Installer::postAutoloadDump"
+            "AndriSudarmawijaya\\CiCustomer\\Installer::postUpdate"
         ]
     },
     "extra": {
