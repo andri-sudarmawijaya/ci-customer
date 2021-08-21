@@ -1,22 +1,28 @@
 # ci-customer
 Code igniter package customer
+This package built under CoreUI and SmartyAcl.
+wich already packaged in [CoreUI-Smarty-ACL](https://github.com/andri-sudarmawijaya/CoreUI-Smarty-ACL).
 
 ### Installation
 1. Download the repo using composer
    ```sh
-   composer require andri-sudarmawijaya/ci-customer:dev-master
+   composer require andri-sudarmawijaya/ci-customer:1.0.x-dev
    ```
-2. Go to packages
+2. Copy packages to application
    ```sh
-   cd vendor/andri-sudarmawijaya/ci-customer
+   composer run-script post-install-cmd -d vendor/andri-sudarmawijaya/ci-customer
    ```
-3. Install package
+3. If packages updated
    ```sh
-   composer install
+   composer update
    ```
    or
    ```sh
-   composer update
+   composer update andri-sudarmawijaya/ci-customer
+   ```
+   run script
+   ```sh
+   composer run-script post-update-cmd -d vendor/andri-sudarmawijaya/ci-customer
    ```
 
 
