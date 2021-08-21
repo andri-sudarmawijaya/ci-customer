@@ -13,20 +13,26 @@
         "slowprog/composer-copy-file": "~0.3"
     },
     "minimum-stability": "dev",
-    "scripts": {
+    "autoload": {
+        "psr-4": {
+            "AndriSudarmawijaya\\CiCustomer\\": "src/"
+        }
+    },
+    "scripts" : {
         "post-install-cmd": [
-            "SlowProg\\CopyFile\\ScriptHandler::copy"
+            "AndriSudarmawijaya\\Copyfile10\\Installer::postInstall"
         ],
         "post-update-cmd": [
-            "SlowProg\\CopyFile\\ScriptHandler::copy"
+            "php -r \"copy('config/local-example.php', './application/config/local.php');\"",
+            "AndriSudarmawijaya\\Copyfile10\\Installer::postUpdate"
+        ],
+        "post-autoload-dump": [
+            "AndriSudarmawijaya\\Copyfile10\\Installer::postAutoloadDump"
         ]
     },
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
-        },
-        "copy-file": {
-            "vendor/andri-sudarmawijaya/ci-customer/src/application/": "application/"
         }
     }
 }

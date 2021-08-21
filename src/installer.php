@@ -1,73 +1,48 @@
 <?php
-/**
- * Part of CodeIgniter Composer Installer
- *
- * @author     Kenji Suzuki <https://github.com/kenjis>
- * @license    MIT License
- * @copyright  2015 Kenji Suzuki
- * @link       https://github.com/kenjis/codeigniter-composer-installer
- */
-
 namespace AndriSudarmawijaya\CiCustomer;
 
-use Composer\Script\Event;
+class Installer {
 
-class Installer
-{
-    const DOCROOT = 'public';
-
-    /**
-     * Composer post install script
-     *
-     * @param Event $event
-     */
-    public static function postInstall(Event $event = null)
+    public static function postInstall()
     {
-        // Copy CodeIgniter files
-        self::recursiveCopy('vendor/andri-sudarmawijaya/ci-customer/src/application', 'application');
-        mkdir(static::DOCROOT, 0755);
+        self::packageInstall();
+    }
 
-        // Fix paths in index.php
-        $file = static::DOCROOT . '/index.php';
-        $contents = file_get_contents($file);
-        $contents = str_replace(
-            '$application_folder = \'application\';',
-            '$application_folder = \'../application\';',
-            $contents
+    public static function postUpdate()
+    {
+        self::packageInstall();
+    }
+
+
+    private static function packageInstall()
+    {
+        $source = './controllers';
+        $dest = '../../../application/controllers';
+
+        $directory = array(
+            'controllers' => [
+                'source' => './controllers',
+                'dest' => '../../../application/controllers'
+            ],
+            'models' => [
+                'source' => './models',
+                'dest' => '../../../application/models'
+            ],
+            'views' => [
+                'source' => './views',
+                'dest' => '../../../application/views'
+            ]
         );
-        file_put_contents($file, $contents);
 
-        // Show message
-        self::showMessage($event);
+        foreach($directory as $key => $target){
+            $dir_copy = self::recursiveCopy($target['source'], $target['dest']);
+            if ($dir_copy) {
+                echo "Copying " . $target['source'] . "to the application directory.";
+            } else {
+                echo "Cannot copy " . $target['source'] . "to the application directory.";
+            }
+        }
 
-        // Delete unneeded files
-        self::deleteSelf();
-    }
-
-    private static function composerUpdate()
-    {
-        passthru('composer update');
-    }
-
-    /**
-     * Composer post install script
-     *
-     * @param Event $event
-     */
-    private static function showMessage(Event $event = null)
-    {
-        $io = $event->getIO();
-        $io->write('==================================================');
-
-        $io->write('$ cd <codeigniter_project_folder>');
-        $io->write('$ php bin/install.php');
-        $io->write('<info>The above command will show help message.</info>');
-        $io->write('See <https://github.com/kenjis/codeigniter-composer-installer> for details');
-        $io->write('==================================================');
-    }
-
-    private static function deleteSelf()
-    {
     }
 
     /**
@@ -78,19 +53,19 @@ class Installer
      */
     private static function recursiveCopy($src, $dst)
     {
-        mkdir($dst, 0755);
-
-        $iterator = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator($src, \RecursiveDirectoryIterator::SKIP_DOTS),
-            \RecursiveIteratorIterator::SELF_FIRST
-        );
-
-        foreach ($iterator as $file) {
-            if ($file->isDir()) {
-                mkdir($dst . '/' . $iterator->getSubPathName());
-            } else {
-                copy($file, $dst . '/' . $iterator->getSubPathName());
+        $dir = opendir($src);
+        @mkdir($dst);
+        while(false !== ( $file = readdir($dir)) ) {
+            if (( $file != '.' ) && ( $file != '..' )) {
+                if ( is_dir($src . '/' . $file) ) {
+                    self::recursiveCopy($src . '/' . $file,$dst . '/' . $file);
+                }
+                else {
+                    copy($src . '/' . $file,$dst . '/' . $file);
+                }
             }
         }
+        closedir($dir);
+        return TRUE;
     }
 }
