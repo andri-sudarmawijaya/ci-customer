@@ -9,18 +9,18 @@
 
 <html lang="en">
     <head>
-        <?php $this->load->view('_layouts/head'); ?>
+        <?php $this->load->view('_partials/_head'); ?>
 
     </head>
     <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
-    <?php $this->load->view('_layouts/header'); ?>
+    <?php $this->load->view('_partials/_header'); ?>
 
         <div class="app-body" id="pjax-container">
-    
-        	<?php $this->load->view('_layouts/sidebar'); ?>
-    
+
+        	<?php $this->load->view('_partials/_sidebar'); ?>
+
             <main class="main" >
-                <?php $this->load->view('_layouts/breadcrumb'); ?>
+                <?php $this->load->view('_partials/_breadcrumb'); ?>
 
                 <div class="container-fluid">
                     <div class="animated fadeIn">
@@ -38,7 +38,7 @@
                                             </div>
                                         </div>
 
-                                        
+
                                         <div class="form-group form-row"">
                                             <label for="contactLastName" class="col-form-label col-sm-3">contactLastName</label>
                                             <div class="col-sm-9">
@@ -46,7 +46,7 @@
                                                 <small class="form-text text-muted w-100">Please input contactLastName value <?php echo form_error('contactLastName') ?></small>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group form-row"">
                                             <label for="contactFirstName" class="col-form-label col-sm-3">contactFirstName</label>
                                             <div class="col-sm-9">
@@ -54,7 +54,7 @@
                                                 <small class="form-text text-muted w-100">Please input contactFirstName value <?php echo form_error('contactFirstName') ?></small>
                                             </div>
                                         </div>
-                                        
+
                                         <div class="form-group form-row"">
                                             <label for="phone" class="col-form-label col-sm-3">phone</label>
                                             <div class="col-sm-9">
@@ -129,23 +129,23 @@
                                                 <small class="form-text text-muted w-100">Please input creditLimit value <?php echo form_error('creditLimit') ?></small>
                                             </div>
                                         </div>
-                                        <input type="hidden" name="customerNumber" value="<?php echo $customerNumber; ?>" /> 
+                                        <input type="hidden" name="customerNumber" value="<?php echo $customerNumber; ?>" />
 
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-danger"><?php echo $button ?></button> 
+                                    <button type="submit" class="btn btn-danger"><?php echo $button ?></button>
                                     <a href="<?php echo site_url('customers') ?>" class="btn btn-default">Batal</a>
-                                </div> 
+                                </div>
                             </form>
-                        </div>                    
+                        </div>
                     </div>
                 </div>
             </main>
-            
-            <?php $this->load->view('_layouts/aside'); ?>
+
+            <?php $this->load->view('_partials/_aside'); ?>
         </div>
-        <?php $this->load->view('_layouts/footer'); ?>        
-        <?php $this->load->view('_layouts/script'); ?>
+        <?php $this->load->view('_partials/_footer'); ?>
+        <?php $this->load->view('_partials/_script'); ?>
 
         <script type="text/javascript">
             $(function () {

@@ -9,23 +9,23 @@
 
 <html lang="en">
     <head>
-        <?php $this->load->view('_layouts/head'); ?>
+        <?php $this->load->view('_partials/_head'); ?>
 
     </head>
     <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
-    <?php $this->load->view('_layouts/header'); ?>
+    <?php $this->load->view('_partials/_header'); ?>
 
         <div class="app-body" id="pjax-container">
-    
-        	<?php $this->load->view('_layouts/sidebar'); ?>
-    
+
+        	<?php $this->load->view('_partials/_sidebar'); ?>
+
             <main class="main" >
-            <?php $this->load->view('_layouts/breadcrumb'); ?>
+            <?php $this->load->view('_partials/_breadcrumb'); ?>
 
                 <div class="container-fluid">
                     <div class="animated fadeIn">
 
-                    <div class="card">        
+                    <div class="card">
                             <div class="card-header">
 								<h4 class="card-title mb-0"><?php echo $title; ?></h4>
                                 <div class="small text-muted">November 2017</div>
@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                                 <!-- /.row-->
-								
+
 								<div role="group" class="form-group form-row">
 									<label for="CustomerName" class="col-form-label col-sm-3">CustomerName</label>
 									<div class="col-sm-9">
@@ -114,15 +114,15 @@
                             <div class="card-footer">
 								<a href="<?php echo site_url('customers') ?>" class="btn btn-info">Kembali</a>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
             </main>
-            
-            <?php $this->load->view('_layouts/aside'); ?>
+
+            <?php $this->load->view('_partials/_aside'); ?>
         </div>
-        <?php $this->load->view('_layouts/footer'); ?>        
-        <?php $this->load->view('_layouts/script'); ?>
+        <?php $this->load->view('_partials/_footer'); ?>
+        <?php $this->load->view('_partials/_script'); ?>
 
 
         <script type="text/javascript">
