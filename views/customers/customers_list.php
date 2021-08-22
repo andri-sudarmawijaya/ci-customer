@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+?><!DOCTYPE html>
 <!--
 * CoreUI - Free Bootstrap Admin Template
 * @version v2.1.12
@@ -8,27 +10,39 @@
 -->
 
 <html lang="en">
-    <head>
-        <?php $this->load->view('_layouts/head'); ?>
-        <link rel="stylesheet" type="text/css" href="/vendors/DataTables/datatables.min.css"/>
-        <link rel="stylesheet" type="text/css" href="/vendors/DataTables/Select-1.3.3/css/select.bootstrap4.min.css"/>
-        <!-- <link rel="stylesheet" type="text/css" href="/vendors/DataTables/Select-1.3.3/css/select.dataTables.min.css"/> -->
-    </head>
-    <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
-    <?php $this->load->view('_layouts/header'); ?>
 
-        <div class="app-body" id="pjax-container">
-    
-        <?php $this->load->view('_layouts/sidebar'); ?>
-    
-            <main class="main" >
-            <?php $this->load->view('_layouts/breadcrumb'); ?>
+<head>
+    <?php $this->load->view('_partials/_head'); ?>
+    <?php //$this->load->view('_partials/_cssdatatabels'); ?>
 
-                <div class="container-fluid">
-                    <div class="animated fadeIn">
-                    <?php $this->load->view('_partials/content_top'); ?>
-                        <div class="card">
-                            <div class="card-body">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/DataTables/datatables.min.css') ?> "/>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/DataTables/Select-1.3.3/css/select.bootstrap4.min.css') ?> "/>
+
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <header class="app-header navbar _header">
+        <?php $this->load->view('_partials/_header'); ?>
+    </header>
+    <div class="app-body" id="pjax-container">
+        <div class="sidebar _sidebar">
+            <?php $this->load->view('_partials/_sidebar'); ?>
+        </div>
+        <main class="main">
+            <!-- Breadcrumb-->
+            <ol class="breadcrumb">
+                <?php $this->load->view('_partials/_breadcrumb'); ?>
+            </ol>
+            <div class="container-fluid">
+                <div class="animated fadeIn">
+                    <div class="row _highlight">
+                        <?php $this->load->view('_partials/_highlight'); ?>
+                    </div>
+                    <!-- /.row-->
+                    <div class="card _content">
+
+
+                        <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-5">
                                         <h4 class="card-title mb-0"><?php echo $title; ?></h4>
@@ -54,7 +68,7 @@
                                     <!-- /.col-->
                                 </div>
                                 <!-- /.row-->
-                                
+
                                 <div class="table-responsive">
 
                                     <table class="table table-bordered table-striped" id="mytable">
@@ -69,7 +83,7 @@
                                         <th width="200px">Action</th>
                                             </tr>
                                         </thead>
-                                    
+
                                     </table>
 
                                     <div id='updateStatus'>
@@ -123,22 +137,41 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php $this->load->view('_partials/content_bottom'); ?>
-                        
-                    </div>
-                </div>
-            </main>
-            
-            <?php $this->load->view('_layouts/aside'); ?>
-        </div>
-        <?php $this->load->view('_layouts/footer'); ?>        
-        <?php $this->load->view('_layouts/script'); ?>
 
-        <script type="text/javascript" src="/vendors/DataTables/datatables.min.js"></script>
-        <script type="text/javascript" src="/vendors/DataTables/Select-1.3.3/js/dataTables.select.min.js"></script>
-        <script type="text/javascript" src="/vendors/DataTables/Select-1.3.3/js/select.bootstrap4.min.js"></script>
-        
+
+                    </div>
+                    <!-- /.card-->
+                    <div class="row _top">
+                        <?php $this->load->view('_partials/_top'); ?>
+                    </div>
+                    <!-- /.row-->
+                    <div class="row _bottom">
+                        <?php $this->load->view('_partials/_bottom'); ?>
+                    </div>
+                    <!-- /.row-->
+                </div>
+            </div>
+        </main>
+        <aside class="aside-menu _aside">
+            <?php $this->load->view('_partials/_aside'); ?>
+        </aside>
+    </div>
+    <footer class="app-footer _footer">
+        <?php $this->load->view('_partials/_footer'); ?>
+    </footer>
+    <!-- CoreUI and necessary plugins-->
+    <?php $this->load->view('_partials/_script'); ?>
+
+    <!-- Page necessary plugins-->
+
+    <!-- <script type="text/javascript" src="/vendors/DataTables/datatables.min.js"></script> -->
+    <script type="text/javascript" src="<?php echo base_url('assets/DataTables/datatables.min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/DataTables/Select-1.3.3/js/dataTables.select.min.js') ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/DataTables/Select-1.3.3/js/select.bootstrap4.min.js') ?>"></script>
+    <!--
+    <script type="text/javascript" src="/vendors/DataTables/Select-1.3.3/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="/vendors/DataTables/Select-1.3.3/js/select.bootstrap4.min.js"></script>
+-->
         <script type="text/javascript">
             //$(document).ready(function() {
                 $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
@@ -160,7 +193,7 @@
                     //scrollY:'400px',
                     //deferRender: true,
                     //scroller:{loadingIndicator:true},
-                    
+
                     //paging:false,
                     initComplete: function() {
                         var api = this.api();
@@ -216,14 +249,14 @@
                 },);
             //}
             //);
-            
+
             t.on('select.dt', function(){
                 getDataSelected()
             })
             t.on('deselect', function(){
                 getDataSelected()
             })
-                
+
             $('#updateStatus').hide()
             var jum_data = '';
             var isiSelect;
@@ -238,11 +271,11 @@
                 var dk = [];
                 array.forEach(function(entry) {
                     var isi = {};
-                    isi.customerNumber = entry.customerNumber;  
-                    isi.customerName = entry.customerName;  
+                    isi.customerNumber = entry.customerNumber;
+                    isi.customerName = entry.customerName;
                     dk.push(entry);
                 })
-                                
+
                 jum_data = t.rows({selected:true}).count()
                 if(jum_data >= 1){
                     $('#updateStatus').show()
@@ -261,7 +294,7 @@
                             type:'POST',
                             url: '<?=base_url("customers/updateStatus");?>',
                             dataType : 'JSON',
-                            data : {jumUpdateStatus : jum_data, status:$(this).val(),isi:isiSelect}, 
+                            data : {jumUpdateStatus : jum_data, status:$(this).val(),isi:isiSelect},
                             success : function(response){
                                 console.log(response)
                                 t.ajax.reload()
@@ -280,18 +313,16 @@
 
 
 
-
-
-
-        <script type="text/javascript">
-            $(function () {
-                $(document).ajaxComplete(function () {
-                    Pace.restart()
-                });
-                if ($.support.pjax) {
-                    $(document).pjax('a[data-pjax]', '#pjax-container')
-                }
+    <script type="text/javascript">
+        $(function() {
+            $(document).ajaxComplete(function() {
+                Pace.restart()
             });
-        </script>
-    </body>
+            if ($.support.pjax) {
+                $(document).pjax('a[data-pjax]', '#pjax-container')
+            }
+        });
+    </script>
+</body>
+
 </html>
