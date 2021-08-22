@@ -206,11 +206,18 @@ class Customers extends CI_Controller
                 $namaCustomer .=   "\r\n" . str_pad($result,2,"0",STR_PAD_LEFT) .". ". $row['customerName'].",";
             }
         }
-        $isi = "[" . date('l, jS \of F Y - H:i:s') . "]  \r\n" .$this->smarty_acl->get_admin()['name'] . " mengubah status " . $result ." customer : \r\n " . $namaCustomer . "\r\n \r\n menjadi " . $status;
-        insert_history('customer',$isi);
+        $content = "[" . date('l, jS \of F Y - H:i:s') . "]  \r\n" .$this->smarty_acl->get_admin()['name'] . " mengubah status " . $result ." customer : \r\n " . $namaCustomer . "\r\n \r\n menjadi " . $status;
 
-        $data['message'] = $isi;
-        telegram_message($data);
+        $this->session->set_flashdata('message', $content);
+        $param['tabel'] = 'customer';
+        $param['content'] = $content;
+        $param['info'] = $status;
+
+        $this->activities->log($param);
+
+        $param['botToken'] = 'XXXXXXXXXX:YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY';
+        $param['chatId'] = -ZZZZZZZZZ;
+        $this->activities->telegram($param);
 
         echo $result;
 

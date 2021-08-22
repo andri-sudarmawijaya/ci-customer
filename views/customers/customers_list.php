@@ -142,11 +142,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                     <!-- /.card-->
                     <div class="row _top">
-                        <?php $this->load->view('_partials/_top'); ?>
+                        <?php //$this->load->view('_partials/_top'); ?>
                     </div>
                     <!-- /.row-->
                     <div class="row _bottom">
-                        <?php $this->load->view('_partials/_bottom'); ?>
+                        <?php //$this->load->view('_partials/_bottom'); ?>
                     </div>
                     <!-- /.row-->
                 </div>
