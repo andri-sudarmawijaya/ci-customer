@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+?><!DOCTYPE html>
 <!--
 * CoreUI - Free Bootstrap Admin Template
 * @version v2.1.12
@@ -8,25 +10,34 @@
 -->
 
 <html lang="en">
-    <head>
-        <?php $this->load->view('_partials/_head'); ?>
 
-    </head>
-    <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
-    <?php $this->load->view('_partials/_header'); ?>
+<head>
+    <?php $this->load->view('_partials/_head'); ?>
+</head>
 
-        <div class="app-body" id="pjax-container">
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <header class="app-header navbar _header">
+        <?php $this->load->view('_partials/_header'); ?>
+    </header>
+    <div class="app-body" id="pjax-container">
+        <div class="sidebar _sidebar">
+            <?php $this->load->view('_partials/_sidebar'); ?>
+        </div>
+        <main class="main">
+            <!-- Breadcrumb-->
+            <ol class="breadcrumb">
+                <?php $this->load->view('_partials/_breadcrumb'); ?>
+            </ol>
+            <div class="container-fluid">
+                <div class="animated fadeIn">
+                    <div class="row _highlight">
+                        <?php $this->load->view('_partials/_highlight'); ?>
+                    </div>
+                    <!-- /.row-->
+                    <div class="card _content">
+                        <?php //$this->load->view('_partials/_content'); ?>
 
-        	<?php $this->load->view('_partials/_sidebar'); ?>
-
-            <main class="main" >
-            <?php $this->load->view('_partials/_breadcrumb'); ?>
-
-                <div class="container-fluid">
-                    <div class="animated fadeIn">
-
-                    <div class="card">
-                            <div class="card-header">
+						<div class="card-header">
 								<h4 class="card-title mb-0"><?php echo $title; ?></h4>
                                 <div class="small text-muted">November 2017</div>
 							</div>
@@ -115,26 +126,42 @@
 								<a href="<?php echo site_url('customers') ?>" class="btn btn-info">Kembali</a>
                             </div>
                         </div>
+
                     </div>
+                    <!-- /.card-->
+                    <div class="row _top">
+                        <?php $this->load->view('_partials/_top'); ?>
+                    </div>
+                    <!-- /.row-->
+                    <div class="row _bottom">
+                        <?php $this->load->view('_partials/_bottom'); ?>
+                    </div>
+                    <!-- /.row-->
                 </div>
-            </main>
-
+            </div>
+        </main>
+        <aside class="aside-menu _aside">
             <?php $this->load->view('_partials/_aside'); ?>
-        </div>
+        </aside>
+    </div>
+    <footer class="app-footer _footer">
         <?php $this->load->view('_partials/_footer'); ?>
-        <?php $this->load->view('_partials/_script'); ?>
+    </footer>
+    <!-- CoreUI and necessary plugins-->
+    <?php $this->load->view('_partials/_script'); ?>
 
+    <!-- Page necessary plugins-->
 
-        <script type="text/javascript">
-            $(function () {
-                $(document).ajaxComplete(function () {
-                    Pace.restart()
-                });
-                if ($.support.pjax) {
-                    $(document).pjax('a[data-pjax]', '#pjax-container')
-                }
+    <script type="text/javascript">
+        $(function() {
+            $(document).ajaxComplete(function() {
+                Pace.restart()
             });
-        </script>
-    </body>
-</html>
+            if ($.support.pjax) {
+                $(document).pjax('a[data-pjax]', '#pjax-container')
+            }
+        });
+    </script>
+</body>
 
+</html>

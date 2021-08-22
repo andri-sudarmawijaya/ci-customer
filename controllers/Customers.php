@@ -12,7 +12,7 @@ class Customers extends CI_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->model('Customers_model');
-        $this->load->model('History_model');
+        //$this->load->model('History_model');
 
 	    $this->load->library('datatables');
         $this->logged_in();
