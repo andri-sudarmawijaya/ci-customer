@@ -26,5 +26,5 @@ THis package use third_party [Acivities log for CodeIgnitor 3](https://github.co
    ```sh
    composer run-script post-update-cmd -d vendor/andri-sudarmawijaya/ci-customer
    ```
-
+4. Import customer.sql to your database as sample (this table borrowed from ...)
 
