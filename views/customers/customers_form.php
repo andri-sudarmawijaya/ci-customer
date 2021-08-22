@@ -31,7 +31,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="container-fluid">
                 <div class="animated fadeIn">
                     <div class="row _highlight">
-                        <?php $this->load->view('_partials/_highlight'); ?>
+                        <?php //$this->load->view('_partials/_highlight'); ?>
                     </div>
                     <!-- /.row-->
                     <div class="card _content">
