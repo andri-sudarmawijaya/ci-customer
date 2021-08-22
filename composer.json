@@ -10,6 +10,9 @@
         }
     ],
     "minimum-stability": "dev",
+    "require": {
+        "andri-sudarmawijaya/ci-activities": "1.0.x-dev"
+    },
     "autoload": {
         "psr-4": {
             "AndriSudarmawijaya\\CiCustomer\\": "src/"

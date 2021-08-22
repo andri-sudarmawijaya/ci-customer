@@ -8,6 +8,7 @@ class Customers extends CI_Controller
     {
         parent::__construct();
         $this->load->library('smarty_acl');
+        $this->load->library('activities');
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->library('form_validation');
